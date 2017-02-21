@@ -19,21 +19,44 @@ public class World {
         GOAL = new ImageIcon("C:/Users/svos14/IdeaProjects/GyArbete/images/goal.png").getImage();
         blocks = new Rectangle[225];
         blockImg = new Image[225];
+
+        loadArrays();
     }
 
-    private void loadArrays(){
-        for(int i = 0; i < arrayNum; i++){
-            if(x >= 225){
-                x = 0;
-                y += 15;
-            }
-            if(i >= 0 && i < 15){
+    int[] map = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+                 1,1,1,0,0,0,0,0,0,0,1,0,0,0,1,
+                 1,3,0,0,0,0,0,0,1,0,0,0,1,0,1,
+                 1,1,1,1,0,1,1,0,1,1,1,0,0,0,1,
+                 1,1,0,0,0,0,0,1,0,0,0,1,0,0,1,
+                 1,0,0,0,0,1,0,0,0,2,0,1,0,0,1,
+                 1,0,0,1,0,0,1,1,0,0,0,1,0,0,1,
+                 1,0,0,0,1,0,0,0,0,1,0,0,1,0,1,
+                 1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,
+                 1,0,0,1,0,1,0,0,0,1,1,0,1,0,1,
+                 1,0,0,1,0,1,0,0,0,0,0,0,1,0,1,
+                 1,0,0,1,0,1,0,0,1,0,1,1,1,0,1,
+                 1,0,0,1,0,1,0,0,1,0,0,0,0,0,1,
+                 1,1,0,0,0,1,0,0,0,0,1,1,1,1,1,
+                 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+
+    public void loadArrays() {
+        for (int i = 0 ; i < 16 ; i++) {
+            if (map[i] == 0) {
+                blockImg[i] = BACKGROUND;
+            } else if (map[i] == 1) {
                 blockImg[i] = WALL;
-                blocks[i] = new Rectangle(x, y, 32, 32);
-            }
+            } else if (map[i] == 2) {
+                blockImg[i] = GOAL;
+            } //else {
+                // 3 motsvarar spelaren så spelpjäsen ska in på den positionen
+            //}
+        }
+        // Mera kod som tar hand om arrayen block till exempel
+    }
 
-
-            x += 15;
+    public void draw(Graphics g){
+        for(int i = 0; i < arrayNum; i++){
+            g.drawImage(blockImg[i], blocks[i].x, blocks[i].y, null);
         }
     }
 

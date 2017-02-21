@@ -15,7 +15,11 @@ public class Panel extends JPanel implements Runnable{
     private Thread game;
     private volatile boolean running = false;
 
+    //Game objects
+    World world;
+
     public Panel(){
+        world =  new World();
         setPreferredSize(gameDim);
         setBackground(Color.WHITE);
         setFocusable(true);
@@ -72,7 +76,7 @@ public class Panel extends JPanel implements Runnable{
 
     /* Draw all game content in this method */
     public void draw(Graphics g){
-        //g.fillRect(30,30,20,20);
+        world.draw(g);
     }
 
     private void paintScreen(){
