@@ -28,6 +28,12 @@ public class Panel extends JPanel implements Runnable{
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e){
+                if (e.getKeyCode() == KeyEvent.VK_A){
+
+                }
+                if (e.getKeyCode() == KeyEvent.VK_D){
+
+                }
 
             }
             @Override

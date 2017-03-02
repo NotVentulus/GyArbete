@@ -9,7 +9,7 @@ public class Spel extends JFrame {
     public Spel() {
         gp = new Panel();
         setTitle("Game");
-        setSize(480, 480);
+        setSize(496, 519);
         setVisible(true);
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
